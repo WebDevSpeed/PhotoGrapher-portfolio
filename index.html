@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PhotoGrapher Portfolio</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        scroll-behavior: smooth;
+      }
+      .footer-t{
+        padding:2rem 10rem;
+      }
+      body {
+        background-color: #f8ede3;
+      }
+      header {
+        background-color: #dfd3c3;
+        border-bottom: 2px solid #8d493a;
+      }
+      nav ul li:hover {
+        color: #f8ede3;
+      }
+
+      .hamburger {
+        display: none;
+      }
+      .nav-menu{
+        display: none;
+      }
+      #hero a{
+        background-color: #dfd3c3;
+      }
+      #hero p{
+        padding: 0 44rem;
+        color: #221a18;
+      }
+      #hero a:hover{
+        background-color: #f8ede3;
+      }
+
+      /*portfolio style*/
+     #portfolio{
+        padding: 20rem;
+     }
+     #about{
+        padding: 10rem 20rem;
+     }
+     .about-details{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        /* align-items: center; */
+     }
+     .about-details a{
+        width: 30%;
+        background-color: #D0B8A8;
+     }
+     .about-details a:hover{
+        background-color: #dfd3c3;
+     }
+     #contact{
+        background-color: #D0B8A8;
+        padding: 20rem;
+     }
+     #btn{
+        background-color: #dfd3c3;
+     }
+     #btn:hover{
+        background-color: #dfd3c3;
+     }
+
+      @media screen and (max-width: 1850px) {
+        #hero p{
+            padding: 0 42rem;
+        }
+        #hero img{
+            height: 52.5rem;
+        }
+        #portfolio{
+            padding: 10rem;
+        }
+      }
+      @media screen and (max-width:1750px) {
+        #hero p{
+            padding: 0 40rem;
+        }
+        #portfolio{
+            padding: 8rem;
+        }
+      }
+      @media screen and (max-width:1650px) {
+        #hero p{
+            padding: 0 38rem;
+        }
+      }
+      @media screen and (max-width:1550px) {
+        #hero p{
+            padding: 0 35rem;
+        }
+        #hero h1{
+            padding: 0 20rem;
+        }
+        #about{
+            padding: 15rem;
+        }
+        .about-details a{
+        width: 30%;
+     }
+      }
+      @media screen and (max-width:1460px) {
+        #hero p{
+            padding: 0 30rem;
+        }
+        #hero h1{
+            padding: 0 15rem;
+        }
+        #about{
+            padding: 10rem;
+        }
+        .about-details a{
+        width: 40%;
+     }
+     #contact{
+        padding: 15rem;
+     }
+      }
+      @media screen and (max-width:1320px) {
+        #hero p{
+            padding: 0 25rem;
+        }
+        #hero h1{
+            padding: 0 10rem;
+        }
+      }
+      @media screen and (max-width:1150px) {
+        #hero p{
+            padding: 0 18rem;
+        }
+        #hero h1{
+            padding: 0 2rem;
+        }
+        #about{
+            padding: 8rem;
+        }
+        #contact{
+        padding: 10rem;
+     }
+        
+      }
+      @media screen and (max-width:900px) {
+        #hero p{
+            padding: 0 7rem;
+            font-size: 1.5rem;
+        }
+        #hero h1{
+            padding: 0 4rem;
+            font-size: 3rem;
+        }
+        #about{
+            padding: 5rem;
+        }
+        .about-details a{
+        width: 40%;
+     }
+     #contact{
+        padding: 5rem;
+     }
+      }
+      @media (max-width: 640px) {
+        .hamburger {
+          display: block;
+        }
+        #portfolio{
+            padding: 2rem;
+        }
+        #hero h1{
+            padding: 0 1rem;
+            font-size: 2rem;
+        }
+        #hero p{
+            padding: 0 1rem;
+        }
+        .nav-menu {
+          display: none;
+        }
+        .nav-menu.active {
+          display: block;
+          position: absolute;
+          right: 0;
+          top: 55px;
+          background-color: #dfd3c3;
+          flex-direction: column;
+          border-bottom: 1px solid #8d493a;
+          border-left: 1px solid #8d493a;
+        }
+      }
+    </style>
+  </head>
+
+  <body class="flex min-h-screen flex-col bg-stone-300">
+    <header
+      class="sticky top-0 z-50 flex h-14 items-center justify-between border-b px-4 sm:h-16 sm:px-6"
+    >
+      <a class="flex items-center gap-2" href="#">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="h-6 w-6"
+        >
+          <path
+            d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"
+          ></path>
+          <circle cx="12" cy="13" r="3"></circle>
+        </svg>
+        <span class="text-lg font-semibold">Photographer Portfolio</span>
+      </a>
+      <nav
+        aria-label="Main"
+        data-orientation="horizontal"
+        dir="ltr"
+        class="relative z-10 max-w-max flex-1 items-center justify-center hidden sm:flex"
+      >
+        <div style="position: relative">
+          <ul
+            data-orientation="horizontal"
+            class="group flex flex-1 list-none items-center justify-center space-x-1"
+            dir="ltr"
+          >
+            <li>
+              <a
+                href="#hero"
+                data-radix-collection-item=""
+                class="group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
+              >
+                Home
+              </a>
+            </li>
+            <li>
+              <a
+                href="#portfolio"
+                data-radix-collection-item=""
+                class="group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
+              >
+                Portfolio
+              </a>
+            </li>
+            <li>
+              <a
+                href="#about"
+                data-radix-collection-item=""
+                class="group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
+              >
+                About
+              </a>
+            </li>
+            <li>
+              <a
+                href="#contact"
+                data-radix-collection-item=""
+                class="group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
+              >
+                Contact
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="absolute left-0 top-full flex justify-center"></div>
+      </nav>
+      <!-- hamburger -->
+
+      <button class="hamburger md:hidden" id="hamburger">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="h-6 w-6"
+        >
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <nav
+        aria-label="Main"
+        data-orientation="horizontal"
+        dir="ltr"
+        class="relative z-10 max-w-max flex-1 items-center justify-center hidden md:flex nav-menu"
+        id="nav-menu"
+      >
+        <div style="position: relative">
+          <ul
+            data-orientation="horizontal"
+            class="group flex flex-1 list-none items-center justify-center space-x-1"
+            dir="ltr"
+          >
+            <li>
+              <a
+                href="#hero"
+                data-radix-collection-item=""
+                class="group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
+              >
+                Home
+              </a>
+            </li>
+            <li>
+              <a
+                href="#portfolio"
+                data-radix-collection-item=""
+                class="group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
+              >
+                Portfolio
+              </a>
+            </li>
+            <li>
+              <a
+                href="#about"
+                data-radix-collection-item=""
+                class="group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
+              >
+                About
+              </a>
+            </li>
+            <li>
+              <a
+                href="#contact"
+                data-radix-collection-item=""
+                class="group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
+              >
+                Contact
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="absolute left-0 top-full flex justify-center"></div>
+      </nav>
+      <!-- <div class="flex items-center gap-2">
+        <a class="text-muted-foreground hover:text-foreground" href="#">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6">
+            <rect width="20" height="20"></rect>
+          </svg>
+        </a>
+      </div> -->
+    </header>
+    <main class="flex-1">
+      <section id="hero" class="relative h-[70vh] w-full overflow-hidden">
+        <img
+          src="./2625448.jpg"
+          alt="Hero Image"
+          width="1920"
+          height="870"
+          class="h-full w-full object-cover object-center opacity-80"
+          style="aspect-ratio: 1920 / 870; object-fit: cover ;"
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-background to-transparent"
+        ></div>
+        <div
+          class="absolute inset-0 flex flex-col px-4 items-center justify-center gap-4 text-center text-primary-foreground sm:gap-6 sm:px-6 "
+        >
+          <h1
+            class="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl mx-24 my-0 py-0 px-96"
+          >
+            Welcome to my Photography Portfolio
+          </h1>
+          <p class="max-w-[600px] text-lg sm:text-xl ">
+            Explore a collection of my best work, showcasing my passion for
+            capturing the beauty of the world around us.
+          </p>
+          <a
+            class="inline-flex h-10 items-center justify-center rounded-md  px-6 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+            href="#portfolio"
+          >
+            View Portfolio
+          </a>
+        </div>
+      </section>
+      <section id="portfolio" class="py-12 sm:py-16 lg:py-20">
+        <div class="container">
+          <div class="mb-8 text-center sm:mb-10 lg:mb-12">
+            <h2
+              class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl"
+            >
+              My Photography Portfolio
+            </h2>
+            <p class="mt-2 text-muted-foreground sm:mt-3 sm:text-lg lg:px-72">
+              Explore a selection of my best work.
+            </p>
+          </div>
+          <div
+            class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+          >
+            <div class="group relative overflow-hidden rounded-lg">
+              <img
+                src="./stefanie-scott.jpg"
+                alt="Portfolio Image 1"
+                width="600"
+                height="400"
+                style="aspect-ratio: 600 / 400; object-fit: cover"
+                class="h-full w-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
+              />
+              <div
+                class="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-background/80 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+              >
+                <h3 class="text-lg font-semibold">Landscape Photography</h3>
+                <p class="text-muted-foreground">
+                  Capturing the beauty of nature
+                </p>
+              </div>
+            </div>
+            <div class="group relative overflow-hidden rounded-lg">
+              <img
+                src="./761645.jpg"
+                alt="Portfolio Image 2"
+                width="600"
+                height="400"
+                class="h-full w-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
+                style="aspect-ratio: 600 / 400; object-fit: cover"
+              />
+              <div
+                class="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-background/80 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+              >
+                <h3 class="text-lg font-semibold">Portrait Photography</h3>
+                <p class="text-muted-foreground">
+                  Capturing the essence of people
+                </p>
+              </div>
+            </div>
+            <div class="group relative overflow-hidden rounded-lg">
+              <img
+                src="./2625372.jpg"
+                alt="Portfolio Image 3"
+                width="600"
+                height="400"
+                style="aspect-ratio: 600 / 400; object-fit: cover"
+                class="h-full w-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
+              />
+              <div
+                class="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-background/80 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+              >
+                <h3 class="text-lg font-semibold">Street Photography</h3>
+                <p class="text-muted-foreground">
+                  Capturing the energy of the city
+                </p>
+              </div>
+            </div>
+            <div class="group relative overflow-hidden rounded-lg">
+              <img
+                src="./2625379.jpg"
+                alt="Portfolio Image 4"
+                width="600"
+                height="400"
+                class="h-full w-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
+                style="aspect-ratio: 600 / 400; object-fit: cover"
+              />
+              <div
+                class="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-background/80 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+              >
+                <h3 class="text-lg font-semibold">Wildlife Photography</h3>
+                <p class="text-muted-foreground">
+                  Capturing the beauty of nature
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="about" class="py-12 sm:py-16 lg:py-20">
+        <div class="container">
+          <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:gap-12">
+            <div class="about-details">
+              <h2
+                class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl"
+              >
+                About Me
+              </h2>
+              <p class="mt-4 text-muted-foreground sm:mt-6 sm:text-lg">
+                Hi, I'm a passionate photographer with a deep love for capturing
+                the beauty of the world around us. I've been honing my craft for
+                over a decade, and I'm excited to share my work with you.
+              </p>
+              <p class="mt-4 text-muted-foreground sm:mt-6 sm:text-lg">
+                My photography style is a blend of technical expertise and
+                artistic vision, allowing me to create images that are both
+                visually stunning and emotionally compelling. I'm constantly
+                exploring new techniques and pushing the boundaries of what's
+                possible in the medium.
+              </p>
+              <a
+                href="#contact"
+                class="mt-6 inline-flex h-10 items-center justify-center rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 sm:mt-8"
+              >
+                Get in Touch
+              </a>
+            </div>
+            <div class="flex items-center justify-center">
+              <img
+                src="./2625368.jpg"
+                alt="About Image"
+                width="600"
+                height="600"
+                class="h-full w-full max-w-[400px] rounded-lg object-cover object-center"
+                style="aspect-ratio: 600 / 600; object-fit: cover"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="contact" class="py-12 sm:py-16 lg:py-20 bg-muted">
+        <div class="container">
+          <div class="mx-auto max-w-xl text-center">
+            <h2
+              class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl"
+            >
+              Get in Touch
+            </h2>
+            <p class="mt-4 text-muted-foreground sm:mt-6 sm:text-lg">
+              Have a project in mind or just want to say hello? I'd love to hear
+              from you.
+            </p>
+            <form class="mt-8 grid gap-4 sm:mt-10">
+              <input
+                class="flex h-10 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-full"
+                placeholder="Name"
+                type="text"
+              />
+              <input
+                class="flex h-10 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-full"
+                placeholder="Email"
+                type="email"
+              />
+              <textarea
+                class="flex min-h-[80px] rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-full"
+                placeholder="Message"
+              ></textarea>
+              <button
+                id="btn" class="inline-flex items-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 justify-center"
+                type="submit"
+              >
+                Submit
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer-t bg-muted py-6 sm:py-8">
+      <div
+        class="container flex flex-col items-center justify-between gap-4 sm:flex-row"
+      >
+        <div class="flex items-center gap-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="h-6 w-6"
+          >
+            <path
+              d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"
+            ></path>
+            <circle cx="12" cy="13" r="3"></circle>
+          </svg>
+          <span class="text-lg font-semibold">Photographer Portfolio</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <a class="text-muted-foreground hover:text-foreground" href="#">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="h-6 w-6"
+            >
+              <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+            </svg>
+            <span class="sr-only">Instagram</span>
+          </a>
+          <a class="text-muted-foreground hover:text-foreground" href="#">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="h-6 w-6"
+            >
+              <path
+                d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"
+              ></path>
+            </svg>
+            <span class="sr-only">Twitter</span>
+          </a>
+          <a class="text-muted-foreground hover:text-foreground" href="#">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="h-6 w-6"
+            >
+              <path
+                d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+              ></path>
+            </svg>
+          </a>
+        </div>
+        <div>
+            <p>2024 Photographer Portfolio. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document
+        .getElementById("hamburger")
+        .addEventListener("click", function () {
+          document.getElementById("nav-menu").classList.toggle("active");
+        });
+    </script>
+  </body>
+</html>
